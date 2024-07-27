@@ -1,12 +1,15 @@
-const express = require('express');
-const userController = require('./../controllers/userController.js');
-const authController= require('./../controllers/authController.js');
+const express = require("express");
+const {
+  registerUser,
+  authUser,
+  allUsers,
+} = require("../controllers/userController");
+const protect = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-router
-  .route('/signup')
-  .post(authController.signup);
+router.route("/").post(registerUser).get(protect, allUsers);
+router.post("/login", authUser);
 
 router
   .route('/login')
@@ -39,4 +42,4 @@ router
   .route('/:id/role')
   .patch(authController.protect, userController.updateUserRole);
   
-module.exports=router;
+module.exports = router;
