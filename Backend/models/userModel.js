@@ -6,6 +6,12 @@ const userModel = mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    womenId:[
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Women"
+      }
+    ]
   },
   { timestamps: true }
 );
@@ -13,6 +19,10 @@ const userModel = mongoose.Schema(
 userModel.methods.matchPassword = async function(enteredPassword){
   return await bcrypt.compare(enteredPassword, this.password)
 }
+
+userModel.pre('find', function() {
+  this.populate('womenId');
+});
 
 userModel.pre("save", async function (next) {
   if (!this.isModified) {
