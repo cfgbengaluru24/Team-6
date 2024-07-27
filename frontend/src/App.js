@@ -1,12 +1,20 @@
 
 import './App.css';
 
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CreateAssessment from './components/CreateAssessment';
+import TakeAssessment from './components/TakeAssessment';
+
+const App = () => {
   return (
-   <div className="mt-10 border">
-    div element
-   </div>
+    <Router>
+        <Routes>
+          <Route path="/create-assessment" element={<CreateAssessment />} />
+          <Route path="/take-assessment" element={<TakeAssessment userId="user123" />} />
+        </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
