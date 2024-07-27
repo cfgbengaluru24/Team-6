@@ -54,7 +54,15 @@ const Learning = () => {
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
+        
       </div> */}
+      {/* <section className="intro-section">
+        <img src="img2learn.jpg" alt="Introduction" className="intro-image" />
+        <div className="intro-text">
+          <h1>Welcome to the Learning Section</h1>
+          <p>This section is designed to help you learn new skills and improve your knowledge.</p>
+        </div>
+      </section> */}
     <div className="accordion accordion-flush" id="accordionFlushExample">
       {videos.map((video, index) => {
         const videoId = extractVideoId(video.videoUrl);
