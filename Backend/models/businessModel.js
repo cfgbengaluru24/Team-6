@@ -14,11 +14,12 @@ const businessModel = mongoose.Schema(
     monthlyExpenses: { type: Number, required: true },
     percentageOfProfitReinvested: { type: Number, required: true },
     percentageOfProfitSaved: { type: Number, required: true },
-    stage:{
-        type: String,
-        required:true,
-        enum:["success","failed","ongoing"]
-    }
+    stage: {
+      type: String,
+      required: true,
+      enum: ["success", "failed", "ongoing"],
+      default: "ongoing",
+    },
   },
   { timestamps: true }
 );
