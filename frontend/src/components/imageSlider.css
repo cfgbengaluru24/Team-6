@@ -1,0 +1,20 @@
+/* Slider.css */
+.slider-container {
+    width: 100%;
+    overflow: hidden; /* Prevents horizontal scroll */
+  }
+  
+  .slick-slider {
+    width: 100%;
+  }
+  
+  .slick-slide {
+    height: auto;
+  }
+  
+  .slider-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra spacing */
+  }
+  

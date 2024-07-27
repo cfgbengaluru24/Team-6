@@ -1,3 +1,12 @@
-.color_nav{
-    background-color: #A21011 !important;
+.custom-navbar {
+    background-color: #A21011; /* Replace with your desired color */
+    color: white !important;
+  }
+  .custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white !important; /* Force text color to white */
+}
+
+.custom-navbar .nav-link.active {
+  color: white !important; /* Ensure active link color is white */
 }

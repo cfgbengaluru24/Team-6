@@ -1,0 +1,15 @@
+.carousel {
+    width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport */
+  }
+  
+  .carousel-inner {
+    width: 100%; /* Ensure inner container takes full width */
+    height: auto; /* Adjust height as needed */
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Make images responsive to container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
