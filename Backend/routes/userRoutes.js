@@ -34,5 +34,9 @@ router
 router
   .route('/:id')
   .get(userController.getUser)
+
+  router
+  .route('/:id/role')
+  .patch(authController.protect, userController.updateUserRole);
   
 module.exports=router;

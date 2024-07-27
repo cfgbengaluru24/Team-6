@@ -60,3 +60,15 @@ exports.deleteUser = catchAsync(async(req,res,next)=>{
         message:'User deleted successfully'
     });
 });
+
+exports.updateUserRole = async (req, res) => {
+    try {
+      const user = await User.findByIdAndUpdate(req.params.id, { role: req.body.role }, { new: true, runValidators: true });
+      if (!user) {
+        return res.status(404).send({ message: 'User not found' });
+      }
+      res.status(200).send(user);
+    } catch (error) {
+      res.status(400).send({ message: 'Error updating user role', error });
+    }
+  };
