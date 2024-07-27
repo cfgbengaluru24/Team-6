@@ -72,7 +72,7 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-exports.updateUserRole = async (req, res) => {
+const updateUserRole = async (req, res) => {
     try {
       const user = await User.findByIdAndUpdate(req.params.id, { role: req.body.role }, { new: true, runValidators: true });
       if (!user) {
@@ -84,4 +84,4 @@ exports.updateUserRole = async (req, res) => {
     }
   };
 
-module.exports = { registerUser, authUser, allUsers };
+module.exports = { registerUser, authUser, allUsers, updateUserRole };

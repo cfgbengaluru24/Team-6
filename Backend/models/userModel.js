@@ -11,7 +11,12 @@ const userModel = mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref:"Women"
       }
-    ]
+    ],
+    role:{
+        type:String,
+        enum:['user','admin','trainer'],
+        default:'user'
+        },
   },
   { timestamps: true }
 );
