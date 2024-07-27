@@ -31,7 +31,7 @@ const BDP = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container1 mt-5">
       <div className="card shadow p-4">
         <h1 className="mb-4 text-center">Business Development Plan Form</h1>
         <form onSubmit={handleSubmit}>

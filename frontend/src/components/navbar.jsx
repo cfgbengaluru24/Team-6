@@ -3,8 +3,9 @@
         import './navbar.css';
         import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
         import { faUser } from '@fortawesome/free-solid-svg-icons';
+        import MultilingualSelector from './language';
 
-        const Navbar = () => {
+        const Navbar = ({scrollToFooter}) => {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -16,7 +17,7 @@
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                     <Link className="nav-link active" aria-current="page" to="/learn">Learn</Link>
                     <Link className="nav-link" to="/assess">Assessment</Link>
-                    <Link className="nav-link" to="/contact">Contact</Link>
+                    <Link className="nav-link" onClick={scrollToFooter} >Contact</Link>
                 </div>
                 <div className="navbar-nav ms-auto">
                     <div className="dropdown d-none d-lg-block">
@@ -34,6 +35,7 @@
                     </div>
                 </div>
                 </div>
+                <MultilingualSelector/>
             </div>
             </nav>
         );
