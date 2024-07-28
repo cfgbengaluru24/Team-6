@@ -1,0 +1,59 @@
+/* BDP.css */
+
+/* Container styling */
+.container1 {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+  background-color: #EDDBC0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px; /* Increased space between form groups */
+}
+
+/* Label styling */
+.form-label {
+  font-weight: bold;
+  margin-bottom: 10px; /* Added space after each label */
+  display: block;
+  text-align: left; /* Ensure labels are aligned to the left */
+  text-transform: capitalize;
+}
+
+/* Input styling */
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Input focus styling */
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #A21011;
+  border-color: #DD5353;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button hover styling */
+.btn-primary:hover {
+  background-color: #DD5353;
+  border-color: #A21011;
+}

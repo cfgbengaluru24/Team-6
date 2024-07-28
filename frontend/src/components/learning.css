@@ -1,0 +1,46 @@
+.carousel {
+    width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport */
+  }
+  
+  .carousel-inner {
+    width: 100%; /* Ensure inner container takes full width */
+    height: auto; /* Adjust height as needed */
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Make images responsive to container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .intro-section {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .intro-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a background color with transparency */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .intro-text h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #fff;
+  }
+  
+  .intro-text p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    color: #fff;
+  }
