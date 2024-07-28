@@ -2,8 +2,10 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import axios from "axios";
 import CheckButton from "react-validation/build/button";
-import AuthService from "../services/auth.service";
+import {useDispatch} from 'react-redux';
+import { loginRequest,loginSuccess,loginFailure } from "../store/authSlice";
 
 const required = (value) => {
   if (!value) {
@@ -18,6 +20,7 @@ const required = (value) => {
 const Login = () => {
   const form = useRef();
   const checkBtn = useRef();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,25 +48,25 @@ const Login = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
-        () => {
-          navigate("/profile");
-          window.location.reload();
-        },
-        (error) => {
-          const resMessage =
+        dispatch(loginRequest())
+        axios.post('http://localhost:5000/api/users/login', {
+            email:username,
+            password
+        }).then((response)=>{
+            dispatch(loginSuccess(response.data));
+            setMessage("User registered successfully");
+            navigate("/")
+        }).catch(error=>{
+            dispatch(loginFailure(error.message));
+            const resMessage =
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
             error.message ||
             error.toString();
 
-          setLoading(false);
           setMessage(resMessage);
-        }
-      );
-    } else {
-      setLoading(false);
+        })
     }
   };
 

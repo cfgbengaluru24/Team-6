@@ -3,6 +3,10 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { loginRequest,loginFailure,loginSuccess } from "../store/authSlice";
 
 import AuthService from "../services/auth.service";
 
@@ -49,6 +53,8 @@ const vpassword = (value) => {
 const Signup = (props) => {
   const form = useRef();
   const checkBtn = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -80,13 +86,19 @@ const Signup = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.Signup(username, email, password).then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-        },
-        (error) => {
-          const resMessage =
+        dispatch(loginRequest())
+        axios.post('http://localhost:5000/api/users', {
+            name:username,
+            email,
+            password
+        }).then((response)=>{
+            dispatch(loginSuccess(response.data));
+            setMessage("User registered successfully");
+            setSuccessful(true);
+            navigate("/")
+        }).catch(error=>{
+            dispatch(loginFailure(error.message));
+            const resMessage =
             (error.response &&
               error.response.data &&
               error.response.data.message) ||
@@ -95,8 +107,8 @@ const Signup = (props) => {
 
           setMessage(resMessage);
           setSuccessful(false);
-        }
-      );
+        })
+      
     }
   };
 

@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = React.forwardRef((props, ref) => {
   return (
-    <footer ref = {ref} className="bg-dark text-light py-4">
+    <footer ref = {ref} className="bg-dark py-4">
       <div className="container">
         <div className="row">
           <div className="col-md-6 mb-4">
@@ -26,7 +26,7 @@ const Footer = React.forwardRef((props, ref) => {
             <h5>Follow Us</h5><br></br>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <a href="https://www.facebook.com/bestpracticesfoundation" className="text-light text-decoration-none">
+                <a href="https://www.facebook.com/bestpracticesfoundation" className="text-light text-decoration-none" >
                   <i className="fab fa-facebook-f me-2"></i> Facebook
                 </a>
               </li>

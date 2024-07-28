@@ -4,8 +4,11 @@
         import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
         import { faUser } from '@fortawesome/free-solid-svg-icons';
         import MultilingualSelector from './language';
+        import { useSelector } from 'react-redux';
 
         const Navbar = ({scrollToFooter}) => {
+            const user = useSelector((state) => state.auth.user);
+            console.log(user);
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -18,6 +21,7 @@
                     <Link className="nav-link active" aria-current="page" to="/learn">Learn</Link>
                     <Link className="nav-link" to="/assess">Assessment</Link>
                     <Link className="nav-link" onClick={scrollToFooter} >Contact</Link>
+                    {user && (user.role=="trainer" || user.role=="admin") && <Link className="nav-link" to="/dashboard">Dashboard</Link>}
                 </div>
                 <div className="navbar-nav ms-auto">
                     <div className="dropdown d-none d-lg-block">
